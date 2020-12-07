@@ -1,0 +1,48 @@
+\usepackage{polynom}
+\usepackage{tikz}
+\usepackage{soul}
+\usepackage{xparse}
+\usepackage{array}
+\usepackage{longtable}
+
+\title{HL Math Help}
+\subtitle{Version 1}
+\date{December 6 2020}
+\institute[SST]{Student-to-Student Tutoring}
+
+\usetheme{default}
+\AtBeginSection{
+    \begin{frame}
+        \centering\Huge\Roman{section}.~\insertsectionhead
+    \end{frame}
+}
+\AtBeginSubsection{
+    \begin{frame}
+        \centering\Large{\Roman{section}.\roman{subsection}.~\insertsubsectionhead}
+    \end{frame}
+}
+% \setbeamertemplate{headline}{%
+% \leavevmode%
+%     \begin{beamercolorbox}[wd=\paperwidth,ht=0.5cm,sep=0.3cm]{palette quaternary}%
+%        \large  \insertsectionhead \insertsubsectionhead
+%     \end{beamercolorbox}%
+
+    
+% }
+% \setbeamertemplate{navigation symbols}{}
+
+\newcounter{step}
+
+\renewcommand{\thestep}{\Roman{step}}
+\NewDocumentCommand{\step}{o}{
+    \par
+    \stepcounter{step}
+    \textbf{Step \thestep}
+    \IfNoValueTF{#1}{ 
+    }{
+        \textbf{:~#1}
+    }
+    
+}
+% \newcommand{\step}[1][]{\stepcounter{step}\thestep :~#1}
+\newcommand{\resetsteps}{\setcounter{step}{0}}
